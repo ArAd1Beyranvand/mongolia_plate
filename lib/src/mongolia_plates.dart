@@ -6,6 +6,7 @@ import 'package:plate_core/plate_core.dart';
 
 import 'mongolia_colors.dart';
 import 'mongolia_country.dart';
+import 'mongolia_regions.dart';
 
 /// Where the ink sits, in plate units.
 ///
@@ -160,6 +161,7 @@ PlateSpec _registration(String id, _Design d) {
       PlateTextGroup(<int>[1], key: 'suffix'),
       PlateTextGroup(<int>[2], key: 'serial'),
     ],
+    resolveRegion: MongoliaRegions.captionOf,
   );
 }
 

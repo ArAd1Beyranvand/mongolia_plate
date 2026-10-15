@@ -7,5 +7,6 @@ export 'src/mongolia_colors.dart';
 export 'src/mongolia_country.dart';
 export 'src/mongolia_themes.dart';
 export 'src/mongolia_plates.dart';
+export 'src/mongolia_regions.dart';
 export 'src/mongolia_validators.dart';
 export 'package:plate_alphabet/plate_alphabet.dart' show MongoliaAlphabets;
