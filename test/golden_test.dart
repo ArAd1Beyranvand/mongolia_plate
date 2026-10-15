@@ -29,12 +29,12 @@ void main() {
         'private': (
           MongoliaPlates.private,
           MongoliaThemes.private,
-          '1 2 3 4 У Б А',
+          '1234 УБ А',
         ),
         'two_row': (
           MongoliaPlates.twoRow,
           MongoliaThemes.twoRow,
-          '1 2 3 4 У Б А',
+          '1234 УБ А',
         ),
       };
 

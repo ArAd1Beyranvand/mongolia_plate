@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/widgets.dart' show AssetImage, EdgeInsets;
 import 'package:plate_alphabet/plate_alphabet.dart';
 import 'package:plate_core/plate_core.dart';
@@ -79,24 +81,22 @@ final class _Design {
   final PlateBox soyombo, oval;
 }
 
-List<PlateSlot> _cells(
-  _Design design,
-  PlateAlphabet alphabet,
-  _Run run,
-  int count,
-) {
+PlateSlot _field(_Design design, PlateAlphabet alphabet, _Run run, int count) {
   final double centre = (run.inkTop + run.inkBottom) / 2;
   final double fit =
       2 * (centre < design.height - centre ? centre : design.height - centre);
   final double wanted = (run.inkBottom - run.inkTop) / 0.55;
   final double height = wanted < fit ? wanted : fit;
-  return plateRegister(
+  return PlateSlot(
     alphabet: alphabet,
-    count: count,
-    left: run.firstCx - run.pitch / 2,
-    top: centre - height / 2,
-    width: run.pitch,
-    height: height,
+    box: PlateBox(
+      run.firstCx - run.pitch / 2,
+      centre - height / 2,
+      count * run.pitch,
+      height,
+    ),
+    length: count,
+    spacing: max(0, run.pitch - 0.6 * 0.72 * height),
   );
 }
 
@@ -112,24 +112,9 @@ const AssetImage _soyombo = AssetImage(
 /// suffix and a serial letter. The oval is a black capsule with a white one
 /// inside it, since a band has no outline.
 PlateSpec _registration(String id, _Design d) {
-  final List<PlateSlot> digits = _cells(
-    d,
-    MongoliaAlphabets.digits,
-    d.digits,
-    4,
-  );
-  final List<PlateSlot> suffix = _cells(
-    d,
-    MongoliaAlphabets.letters,
-    d.suffix,
-    2,
-  );
-  final List<PlateSlot> serial = _cells(
-    d,
-    MongoliaAlphabets.letters,
-    d.serial,
-    1,
-  );
+  final PlateSlot digits = _field(d, MongoliaAlphabets.digits, d.digits, 4);
+  final PlateSlot suffix = _field(d, MongoliaAlphabets.letters, d.suffix, 2);
+  final PlateSlot serial = _field(d, MongoliaAlphabets.letters, d.serial, 1);
   final PlateBox o = d.oval;
   const double s = _Layout.ovalStroke;
   return PlateSpec(
@@ -142,7 +127,7 @@ PlateSpec _registration(String id, _Design d) {
       padding: EdgeInsets.zero,
     ),
     noPanel: true,
-    slots: <PlateSlot>[...digits, ...suffix, ...serial],
+    slots: <PlateSlot>[digits, suffix, serial],
     bands: <PlateBand>[
       PlateBand(
         box: o,
@@ -171,9 +156,9 @@ PlateSpec _registration(String id, _Design d) {
     ],
     decals: <PlateDecal>[PlateDecal(image: _soyombo, box: d.soyombo)],
     textGroups: <PlateTextGroup>[
-      PlateTextGroup(<int>[0, 1, 2, 3], key: 'number'),
-      PlateTextGroup(<int>[4, 5], key: 'suffix'),
-      PlateTextGroup(<int>[6], key: 'serial'),
+      PlateTextGroup(<int>[0], key: 'number'),
+      PlateTextGroup(<int>[1], key: 'suffix'),
+      PlateTextGroup(<int>[2], key: 'serial'),
     ],
   );
 }
