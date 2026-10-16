@@ -3,10 +3,10 @@ import 'package:plate_core/plate_core.dart';
 import 'mongolia_colors.dart';
 
 /// Black on white. The frame is about 3.75 thick (x 1.25–5 of 520) with a
-/// corner radius near 7, measured off `.plateref/mn/flat_Plak_Mo_olistan_2001.png`.
-/// The ratios are of the plate height, so each design passes its own.
+/// corner radius near 7, measured off
+/// `.plateref/mn/flat_Plak_Mo_olistan_2001.png`. The ratios are of the plate
+/// height, so each design has its own.
 abstract final class MongoliaThemes {
-  /// The one-row plate, 520 × 110.
   static final PlateTheme private = PlateTheme.monochrome(
     field: MongoliaColors.white,
     ink: MongoliaColors.black,

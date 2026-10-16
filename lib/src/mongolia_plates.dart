@@ -84,10 +84,8 @@ final class _Design {
 
 PlateSlot _field(_Design design, PlateAlphabet alphabet, _Run run, int count) {
   final double centre = (run.inkTop + run.inkBottom) / 2;
-  final double fit =
-      2 * (centre < design.height - centre ? centre : design.height - centre);
-  final double wanted = (run.inkBottom - run.inkTop) / 0.55;
-  final double height = wanted < fit ? wanted : fit;
+  final double fit = 2 * min(centre, design.height - centre);
+  final double height = min((run.inkBottom - run.inkTop) / 0.55, fit);
   return PlateSlot(
     alphabet: alphabet,
     box: PlateBox(

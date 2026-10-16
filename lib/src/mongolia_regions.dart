@@ -1,5 +1,3 @@
-import 'package:plate_core/plate_core.dart';
-
 /// Locates a Mongolian plate from the first two letters of its suffix.
 ///
 /// Source: the suffix table of
@@ -50,7 +48,6 @@ abstract final class MongoliaRegions {
     return names.length == 1 ? names.single : null;
   }
 
-  /// A [PlateLabelResolver] for [PlateSpec.resolveRegion].
   static String? captionOf(String Function(String key) group) =>
       lookup(group('suffix'));
 }
