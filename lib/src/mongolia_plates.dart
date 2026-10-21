@@ -163,11 +163,9 @@ PlateSpec _registration(String id, _Design d) {
   );
 }
 
-/// The Mongolian plates since 2001 (`1234 УБА`).
-///
-/// - [private]: the one-row 520 × 110 plate.
-/// - [twoRow]: the short two-row plate, digits above the letters, from the
-///   unlabelled `Plak-15x30` picture; the article names no category for it.
+/// The Mongolian plates since 2001 (`1234 УБА`). [twoRow] is the short
+/// two-row plate from the unlabelled `Plak-15x30` picture; the article names no
+/// category for it.
 ///
 /// Not implemented: the pre-2001 plates (superseded); the article shows no
 /// other category. Since about 2018 new plates use a Roboto-style typeface;
