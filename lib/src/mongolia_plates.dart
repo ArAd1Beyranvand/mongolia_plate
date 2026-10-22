@@ -88,12 +88,7 @@ PlateSlot _field(_Design design, PlateAlphabet alphabet, _Run run, int count) {
   final double height = min((run.inkBottom - run.inkTop) / 0.55, fit);
   return PlateSlot(
     alphabet: alphabet,
-    box: PlateBox(
-      run.firstCx - run.pitch / 2,
-      centre - height / 2,
-      count * run.pitch,
-      height,
-    ),
+    box: PlateBox(run.firstCx - run.pitch / 2, centre - height / 2, count * run.pitch, height),
     length: count,
     spacing: max(0, run.pitch - 0.6 * 0.72 * height),
   );
@@ -121,10 +116,7 @@ PlateSpec _registration(String id, _Design d) {
     country: MongoliaCountry.mongolia,
     canvasWidth: d.width,
     canvasHeight: d.height,
-    panel: const PlatePanel(
-      box: PlateBox(0, 0, 0, 0),
-      padding: EdgeInsets.zero,
-    ),
+    panel: const PlatePanel(box: PlateBox(0, 0, 0, 0), padding: EdgeInsets.zero),
     noPanel: true,
     slots: <PlateSlot>[digits, suffix, serial],
     bands: <PlateBand>[
