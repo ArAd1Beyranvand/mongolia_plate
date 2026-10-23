@@ -1,7 +1,7 @@
 name: mongolia_plate
 description: "Mongolia's licence plates for the plate_core library — the black-on-white one-row and two-row plates with the red Soyombo, a Cyrillic alphabet and an advisory validator."
 version: 0.1.0
-publish_to: none
+repository: https://github.com/ArAd1Beyranvand/mongolia_plate
 resolution: workspace
 
 environment:
