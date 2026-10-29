@@ -99,6 +99,9 @@ PlateSlot _field(_Design design, PlateAlphabet alphabet, _Run run, int count) {
   );
 }
 
+// TODO(py): [H2][D6] ImageProvider: reference the raster as package + path; importlib.resources.
+// TODO(ts): [H2][D6] ImageProvider: reference the raster as package + path; import as asset URL.
+// TODO(kt): [H2][D6] ImageProvider: reference the raster as package + path; Res/compose resources.
 const AssetImage _soyombo = AssetImage(
   // Commons: File:Soyombo_red.svg; assets/icons/soyombo.svg is the vector. The
   // PNG is it rasterised with its masks applied (the crescent and the

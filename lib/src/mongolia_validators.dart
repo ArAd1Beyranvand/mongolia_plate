@@ -1,6 +1,9 @@
 import 'package:plate_alphabet/plate_alphabet.dart';
 import 'package:plate_core/plate_core.dart';
 
+// TODO(py): [D4-code] hand-port; reason strings are the contract, keep them byte-identical.
+// TODO(ts): [D4-code] hand-port; reason strings are the contract, keep them byte-identical.
+// TODO(kt): [D4-code] hand-port; reason strings are the contract, keep them byte-identical.
 /// Judges `1234 УБ А` by its groups `number`, `suffix` and `serial`.
 ///
 /// Four digits (leading zeroes kept), a two-letter aimag suffix from the
