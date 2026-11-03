@@ -7,6 +7,4 @@ abstract final class MongoliaColors {
   static const Color black = Color(0xFF000000);
 
   static const Color soyomboRed = Color(0xFFDC171C);
-
-  static const Color inactive = Color(0xFFB0B0B0);
 }

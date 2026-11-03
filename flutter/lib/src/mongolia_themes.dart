@@ -10,7 +10,6 @@ abstract final class MongoliaThemes {
   static final PlateTheme private = PlateTheme.monochrome(
     field: MongoliaColors.white,
     ink: MongoliaColors.black,
-    inactive: MongoliaColors.inactive,
     borderWidthRatio: 3.75 / 110,
     plateRadiusRatio: 7 / 110,
   );
@@ -19,7 +18,6 @@ abstract final class MongoliaThemes {
   static final PlateTheme twoRow = PlateTheme.monochrome(
     field: MongoliaColors.white,
     ink: MongoliaColors.black,
-    inactive: MongoliaColors.inactive,
     borderWidthRatio: 3.75 / 170,
     plateRadiusRatio: 7 / 170,
   );

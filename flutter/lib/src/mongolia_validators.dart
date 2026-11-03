@@ -1,9 +1,6 @@
 import 'package:plate_alphabet/plate_alphabet.dart';
 import 'package:plate_core/plate_core.dart';
 
-// TODO(py): [D4-code] hand-port; reason strings are the contract, keep them byte-identical.
-// TODO(ts): [D4-code] hand-port; reason strings are the contract, keep them byte-identical.
-// TODO(kt): [D4-code] hand-port; reason strings are the contract, keep them byte-identical.
 /// Judges `1234 УБ А` by its groups `number`, `suffix` and `serial`.
 ///
 /// Four digits (leading zeroes kept), a two-letter aimag suffix from the
@@ -11,10 +8,7 @@ import 'package:plate_core/plate_core.dart';
 /// letter. Gated on the serial, so nothing is reported until the plate is
 /// complete. Reports, never bars a keystroke.
 class MongoliaValidator extends GatedPlateValidator {
-  const MongoliaValidator();
-
-  @override
-  String get gateGroup => 'serial';
+  const MongoliaValidator() : super('serial');
 
   static const String reasonNumber = 'The number is four digits.';
   static const String reasonSuffix = 'The aimag suffix is not a known one.';

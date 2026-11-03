@@ -4,9 +4,6 @@
 /// Cyrillic alphabet and an advisory validator.
 library;
 
-// TODO(py): [D5] one module `plates.countries.mongolia`; assets via importlib.resources.
-// TODO(ts): [D5] one subpath export `./countries/mongolia`; tree-shakable.
-// TODO(kt): [D5] package `countries.mongolia` in the countries module.
 export 'package:plate_alphabet/plate_alphabet.dart' show MongoliaAlphabets;
 export 'src/mongolia_colors.dart';
 export 'src/mongolia_country.dart';

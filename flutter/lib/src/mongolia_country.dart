@@ -8,13 +8,9 @@ import 'mongolia_colors.dart';
 abstract final class MongoliaCountry {
   static const PlateCountry mongolia = PlateCountry(
     code: 'mn',
-    captionLines: <String>[],
     panelColor: MongoliaColors.soyomboRed,
     panelTextColor: MongoliaColors.white,
     flagAspectRatio: 2,
-    // TODO(py): [H20][D6] flag asset by package + path; convert to PlateDrawing at export time.
-    // TODO(ts): [H20][D6] flag asset by package + path; convert to PlateDrawing at export time.
-    // TODO(kt): [H20][D6] flag asset by package + path; convert to PlateDrawing at export time.
     flag: SvgPlateAsset(
       // Commons: File:Flag_of_Mongolia.svg
       'assets/icons/mongolia_flag.svg',

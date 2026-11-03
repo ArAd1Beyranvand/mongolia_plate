@@ -57,9 +57,7 @@ abstract final class _Layout {
   /// `MNG` ink 38.75 × 13.5 inside the oval; the label is centred on it. The
   /// glyph is 20 rather than the 24.5 the height alone asks for: the bold face
   /// is wider than the reference's, and 24.5 spills out of the oval.
-  static const double mngGlyph = 20;
-  static const double mngWidth = 40;
-  static const double mngCentreDx = 0.6;
+  static const double mngGlyph = 20, mngWidth = 40, mngCentreDx = 0.6;
 }
 
 final class _Run {
@@ -86,22 +84,16 @@ PlateSlot _field(_Design design, PlateAlphabet alphabet, _Run run, int count) {
   final double centre = (run.inkTop + run.inkBottom) / 2;
   final double fit = 2 * min(centre, design.height - centre);
   final double height = min((run.inkBottom - run.inkTop) / 0.55, fit);
-  return PlateSlot(
-    alphabet: alphabet,
-    box: PlateBox(
-      run.firstCx - run.pitch / 2,
-      centre - height / 2,
-      count * run.pitch,
-      height,
-    ),
-    length: count,
-    spacing: max(0, run.pitch - 0.6 * 0.72 * height),
+  return plateRun(
+    alphabet,
+    count,
+    left: run.firstCx - run.pitch / 2,
+    top: centre - height / 2,
+    pitch: run.pitch,
+    height: height,
   );
 }
 
-// TODO(py): [H2][D6] ImageProvider: reference the raster as package + path; importlib.resources.
-// TODO(ts): [H2][D6] ImageProvider: reference the raster as package + path; import as asset URL.
-// TODO(kt): [H2][D6] ImageProvider: reference the raster as package + path; Res/compose resources.
 const AssetImage _soyombo = AssetImage(
   // Commons: File:Soyombo_red.svg; assets/icons/soyombo.svg is the vector. The
   // PNG is it rasterised with its masks applied (the crescent and the
@@ -157,11 +149,7 @@ PlateSpec _registration(String id, _Design d) {
       ),
     ],
     decals: <PlateDecal>[PlateDecal(image: _soyombo, box: d.soyombo)],
-    textGroups: <PlateTextGroup>[
-      PlateTextGroup(<int>[0], key: 'number'),
-      PlateTextGroup(<int>[1], key: 'suffix'),
-      PlateTextGroup(<int>[2], key: 'serial'),
-    ],
+    textGroups: PlateTextGroup.perSlot(<String>['number', 'suffix', 'serial']),
     resolveRegion: MongoliaRegions.captionOf,
   );
 }
