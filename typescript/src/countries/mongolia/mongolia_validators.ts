@@ -1,4 +1,4 @@
-import { GatedPlateValidator, type PlateEntry, type PlateValidation, invalid, isDigitsOfLength, valid } from '../../core/validators/plate_validator';
+import { GatedPlateValidator, type PlateEntry, type PlateValidation, invalid, isDigitsOfLength, valid } from 'plate_core/core/validators/plate_validator';
 
 const suffixes: ReadonlySet<string> = new Set(
   'АР БН БР БӨ БУ ГА ГС ДА ДГ ДО ДУ ОР ХЭ ХО ХӨ НА ӨМ ӨВ СЭ СҮ СБ ТӨ УБ УН УА УЕ УК УВ ЗА'.split(' '),
